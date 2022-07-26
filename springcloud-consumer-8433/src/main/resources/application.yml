@@ -1,0 +1,17 @@
+server:
+  port: 8433
+spring:
+  application:
+    name: springcloud-consumer-8443
+
+eureka:
+  client:
+    service-url:
+      #      注册中心地址
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: springcloud-consumer-8443 #修改Eureka上的默认描述信息
+
+SPRINGCLOUD-PROVIDER: # 服务的名称，表示作用到哪个微服务
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
